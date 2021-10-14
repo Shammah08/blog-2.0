@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href={{url_for('static', filename='stylesheet.css' )}}>
+<title>{{title}}</title>
+<style>
+    body{
+        font-size: 1.6rem;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<nav id="profile-nav">
+    {% for user in users %}
+    {% if user[4] == username %}
+    <a href="#"><div class="profile-logo">{{user[1][0]}}{{user[2][0]}}</div></a>
+    {% endif %}
+    {% endfor %}
+    <ul id="profile-nav-list">
+        <li class="nav-item"><a href="#">Create</a></li>
+        <li class="nav-item"><a href="/blog#blog">Blog</a></li>
+        <li class="nav-item"><a href="#">My To-Do</a></li>
+    </ul>
+</nav>
+<section class="settings">
+    <h2>Profile Settings</h2>
+    <form action="/settings/personal" method="POST" id="user-details">
+        <div class="full-names">
+            <span>
+                First Name: <input type="text" name="first-name" id="first-name" class="form-control" value="{{user_details[0][1]}}">
+            </span>
+            <span>
+                Last Name:   <input type="text" name="last-name" id="last-name" class="form-control" value="{{user_details[0][2]}}">
+            </span>
+        </div>
+        <div class="user-email">
+            <span>
+                Username: <input type="text" name="username" id="username" class="form-control" value="{{user_details[0][4]}}">
+            </span>
+          <span>
+            Email: <input type="text" name="email" id="email" class="form-control" value="{{user_details[0][3]}}">
+          </span>
+        </div>
+        <br><br>
+        <article>
+            <h2>About</h2>
+            <textarea name="about" id="about">{{user_details[0][7]}}
+            </textarea>
+        </article>
+        <button type="submit" class="btn">Update</button>
+         </form>
+         
+         <form action="/settings/social" id="social-details">
+            <h2>Social Media</h2>
+            <div class="social-media">
+                <span>
+                Instagram: <input type="text" name="instagram" id="instagram" class="form-control" value="http://www.{{user_details[0][4]}}.instagram.com">
+                </span>
+                <span>
+                GitHub: <input type="text" name="github" id="github" class="form-control" value="http://www.{{user_details[0][4]}}.github.com">
+                </span>
+                <span>
+                Twitter: <input type="text" name="twitter" id="twitter" class="form-control" value="http://www.{{user_details[0][4]}}.twitter.com">
+                </span>
+                <span>
+                FaceBook: <input type="text" name="facebook" id="facebook" class="form-control" value="http://www.{{user_details[0][4]}}.faceboook.com">
+                </span>
+            </div>
+        <button type="submit" class="btn">Update</button>
+    </form>
+
+    <form action="/settings/delete" id="delete-account">
+        <h3>{{user_details[0][1]}} {{user_details[0][2]}}</h3>
+        <div class="deactivate-account">
+            <h4>Would you like to delete your profile?</h4>
+            <div class="password-div">
+                <input type="password" name="password" id="password" placeholder="Password" class="form-control"
+                    required>
+                <span><i>Show</i></span>
+            </div>
+            <span><h5> Are you sure?</h5> <input type="checkbox" name="confirm-delete" id=""></span><br>
+            <button type="submit" class="btn">Update</button>
+        </div>
+    </form>
+</section>
+
+
+<section class="time-section">
+<div class="time-text">
+    <div class="day-container">
+        <h1 class="day">Day</h1>
+        <h3 class="day-text">Day</h3>
+    </div>
+    <div class="date-container">
+        <h1 class="date">Date</h1>
+        <h3 class="date-text">Date</h3>
+    </div>
+    <div class="hour-container">
+        <h1 class="hour">Hour</h1>
+        <h3 class="hour-text">Hour</h3>
+
+    </div>
+    <div class="minute-container">
+        <h1 class="minute">Minute</h1>
+        <h3 class="minute-text">Minute</h3>
+    </div>
+    <div class="second-container">
+        <h1 class="second">Second</h1>
+        <h3 class="second-text">Seconds</h3>
+    </div>
+
+</div>
+</section>
+{% endblock%}
+
+{% block script %}
+<script src="../static/index.js"></script>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href={{url_for('static', filename='stylesheet.css' )}}>
+
+<title>{{title}}</title>
+
+{% endblock %}
+
+{% block body %}
+<section class="login-section">
+    <section class="login-form-section" style="height: 65vh">
+        <h1 class="title">Sign Up</h1>
+        <div class="login-links">
+            <button>Facebook</button>
+            <button>Google</button>
+            <button>Apple</button>
+        </div>
+        <form action="/signup" method="POST" class="login-form">
+            <input type="text" name="first-name" id="firdt-name" placeholder="First Name" class="form-control" required>
+            <input type="text" name="last-name" id="last-name" placeholder="Last Name" class="form-control" required>
+            <br>
+            <input type="email" name="email" id="email" placeholder="Email" class="form-control" required>
+            <input type="text" name="username" id="username" placeholder="Username" class="form-control" required> <br>
+            <div class="password-div">
+                <input type="password" name="password" id="password" placeholder="Password" class="form-control"
+                    required>
+                <span><i>Show</i></span>
+            </div>
+            <div class="password-div">
+                <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirm Password"
+                    class="form-control" required>
+                <span><i>Show</i></span>
+            </div>
+
+            <br>
+            <strong>{{response}}</strong> <br>
+            <button>Sign Up</button>
+        </form>
+        <h3>Forgot Password?</h3>
+        <i>Have an account already? <a href="/login">Log In</a></i>
+    </section>
+
+</section>
+{% endblock %}
+
+{% block script %}
+<script src="../static/index.js"></script>
+{% endblock %}

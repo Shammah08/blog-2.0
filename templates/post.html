@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block head %}
+
+<title>{{title}}</title>
+{% endblock %}
+
+{% block body %}
+<nav id="profile-nav">
+    <a href="/profile"><div class="profile-logo">  {{post[1]}}</div></a>
+     <ul id="profile-nav-list">
+         <li class="nav-item"><a href="/blog">Blog</a></li>
+         <li class="nav-item"><a href="#">My To-Do</a></li>
+         <li class="nav-item"><a href="/settings/view">Settings</a></li> 
+         {% if username == 'Admin' %}
+         <li class="nav-item"><a href="/admin/username">Admin Panel</a></li> 
+         {% endif %}
+     </ul>
+ </nav>
+
+ <section class="post-section">
+    <div class="post-content-container">
+          <span  class="post-meta-author">
+            <h1 post-title>{{post[2]}}</h1>
+            <small>by: {{post[1]}}</small>
+          </span>
+            <p class="post-content"> 
+                {{post[3]}}...
+                </p> <br>
+            <div class="post-meta-data">
+                <span>
+                    Time:{{post[4].strftime('%c')}}
+                </span>
+                  <span>
+                    Shares
+                </span>
+                <span>
+                    Comments {{comments[0]}}
+                </span>
+                </div> <br>
+    
+                <div class="comment-section">
+                    {% for comment in comments[1] %}
+                    <span class="comment">{{comment[2]}} &nbsp;&nbsp;&nbsp;{{comment[3]}} &nbsp;&nbsp;&nbsp;{{comment[4].strftime('%c')}}</span> <br>
+                    {% endfor %} <br> <br>
+                    <form action="#">
+                        <input type="text" name="comment" id="new-comment" placeholder="Add Comment">
+                        <button>Comment</button>
+                    </form>
+            </div>
+    </div>
+
+</section>
+{% endblock %}
+
+{% block script %}
+<script src="../static/index.js"></script>
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>{{title}}</title>
+{% endblock %}
+
+{% block body %}
+
+<section class="bio-section">
+    <nav id="profile-nav">
+        <a href="/profile"><div class="profile-logo">  {{user[0][1][0].capitalize()}}{{user[0][2][0].capitalize()}}</div></a>
+        <ul id="profile-nav-list">
+            <li class="nav-item"><a href="blog">Create</a></li>
+            <li class="nav-item"><a href="/blog#blog">Blog</a></li>
+            <li class="nav-item"><a href="#">My To-Do</a></li>
+            <li class="nav-item"><a href="/settings/view">Settings</a></li> 
+            {% if username == 'Admin' %}
+            <li class="nav-item"><a href="/admin/{{username}}">Admin Panel</a></li> 
+            {% endif %}
+        </ul>
+    </nav>
+    <div class="profile-photo"></div>
+    <div class="bio">
+        {% for user_detail in users %}
+        {% if user_detail[4] == user[0][4]%}
+        <h1>{{user_detail[1].capitalize()}} {{user_detail[2].capitalize()}}</h1>
+        <h2 id="username">@{{user_detail[4]}}</h2>
+        <h2><small> {{user_detail[3]}} </small></h2> <br>
+        <h3>About</h3>
+        {% if user_detail[7] %}
+        <p>{{user_detail[7]}}</p><br> <br>
+            {% else %}
+            <p>Hello World</p><br> <br>
+            {% endif %}
+           <div class="follow-section">
+                <strong> <small class="follow-count">Followers </small><span class="followers"> 10 </span></strong> |
+            <strong><small class="following-count">Following</small> <span class="following"> 3 </span></strong> <br>
+        </div> 
+    {% endif %}
+    {% endfor %}
+    {% if userid != user[0][0] %}
+    <button class="follow">Follow</button>
+    {% endif %}
+</div>
+</section>
+<section class="user-section">
+    {% for user_detail in users %}
+    {% if user_detail[4] != user[0][4] %}
+    <div class="user">
+        <h3> <strong> {{user_detail[1]}} {{user_detail[2]}}</strong></h3>
+        <h4><strong><small><a href="/profile/guest/{{user_detail[4]}}"> @{{user_detail[4]}}</a></small></strong></h3>
+            {% if user_detail[7] %}
+            <p><small> {{user_detail[7][:100]}}...</small></p>
+                {% else %}
+                <h4><small>Hello World</small></h3>
+                {% endif %}
+    </div>
+    {% endif %}
+    {% endfor %}
+</section>
+
+<section class="recent-post">
+    <h1>Recent Posts</h1>
+    {% for post in recent_posts %}
+    <div class="post">
+        <strong>Title: {{post[2]}}</strong> <br>
+        <strong> By: {{post[1]}}</strong> <br>
+        <small>Posted On: {{post[4].strftime('%c')}}</small> <br>
+        <a href="/post/{{post[0]}}">View Post</a>
+    </div>
+    {% endfor %}
+
+</section>
+
+
+
+{% endblock%}
+
+{% block script %}
+<script src="../static/index.js"></script>
+{% endblock %}

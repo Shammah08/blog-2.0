@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block head %}
+
+<title>{{title}}</title>
+{% endblock %}
+
+{% block body %}
+<nav id="profile-nav">
+   <a href="/profile"><div class="profile-logo">  {{user[0][1][0]}}{{user[0][2][0]}}</div></a>
+    <ul id="profile-nav-list">
+        <li class="nav-item"><a href="blog#create">Create</a></li>
+        <li class="nav-item"><a href="/blog#blog">Blog</a></li>
+        <li class="nav-item"><a href="#">My To-Do</a></li>
+        <li class="nav-item"><a href="/settings/view">Settings</a></li> 
+        {% if username == 'Admin' %}
+        <li class="nav-item"><a href="/admin/username">Admin Panel</a></li> 
+        {% endif %}
+    </ul>
+</nav>
+    <section class="create-post" id="create">
+        <div class="post-details">
+            
+            <form action="/post/{{user[0][4]}}" method="POST">
+                <textarea name="content" id="text-content" required></textarea>
+                <input type="text" class="form-control" id="author" value="{{user[0][4]}}" disabled>
+                <input type="text" placeholder="Title" class="form-control" id="title" name="title">
+                <span>
+                    <i>Private: </i> <input type="checkbox" name="privacy" checked>
+                    <button type="submit" class=" save-post btn">Save</button>
+                </span>
+              
+            </form>
+            <div class="post-meta-data">
+                <span>
+                    Interactions
+                </span>
+                  <span>
+                    Shares
+                </span>
+                <span>
+                    Comment
+                </span>
+
+            </div>
+        </div>
+    </section>
+    <section class="blog-section" id="blog">
+        {% for post in all_user_post %}
+        <div class="post-container">
+              <span  class="post-meta-author">
+                <h1>{{post[2]}}</h1>
+                <small>by: {{post[1]}}</small>
+              </span>
+                <p class="post-text"> 
+                    {{post[3][0:200]}}...
+                    </p>
+                    <a href="/post/{{post[0]}}">Read More</a>
+                <div class="post-meta-data">
+                    <span>
+                        Interactions
+                    </span>
+                      <span>
+                        Shares
+                    </span>
+                    <span>
+                        Comment
+                    </span>
+
+                </div>
+        </div>
+        {% endfor %}
+    </section>
+    {% endblock %}
+    
+    {% block script %}
+    <script src="../static/index.js"></script>
+    {% endblock %}
+

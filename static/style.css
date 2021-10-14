@@ -1,0 +1,547 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior:smooth;
+
+}
+body{
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+header{
+    padding: 10px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    width: 100%;
+    background-image:linear-gradient(180deg, rgba(0, 0, 0,1), rgba(0, 0, 0,1));
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.logo{
+    width: 20%;
+    font-size: 2rem;    
+    letter-spacing: 4px;
+    padding: 10px;
+}
+.logo a{
+    text-decoration: none;
+    color: whitesmoke;
+}
+.nav-links
+{
+    display: flex;
+    list-style: none;
+    justify-content: space-evenly;
+    padding: 10px;
+    color: #020202;
+    width: 30%;
+    letter-spacing: 2px;
+}
+.nav-item:hover{
+    text-decoration:  underline 5px solid #FC8D1C;
+    font-size: 1.5rem;
+    transition: all ease-in-out .2s;
+}
+.nav-links a{
+    text-decoration: none;
+    color: whitesmoke;
+}
+.burger{
+    display: none;
+    cursor: pointer;
+}
+.burger div{
+    height: 3px;
+    width: 25px;
+    margin: 4px;
+    background-color: red;
+}
+
+
+/* HOME  PAGE*/
+.landing-section
+{
+    padding: 100px;
+    background-color: white;
+    height: 90vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.landing-section h1
+{
+    font-size: 10rem;
+    font-weight: 10rem;  
+    text-align: center;
+    border-width: 10px;
+    margin: 10px;
+   
+}
+.landing-section p
+{
+    font-size: 1.2rem;
+}
+
+button
+{
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: rgb(255, 255, 255, .8);
+    border: 1px solid black;
+    color: black;
+    text-decoration: none;
+    width: 200px;
+}
+button:hover{
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    transform: scale(1);
+    transition:all ease-in-out .3s;
+    font-size: large;
+}
+.article-section{
+    display: grid;
+    grid-template-columns: auto auto ;
+    grid-template-rows: auto auto auto;
+    height: auto;
+    margin: auto;
+    width: 1000px;
+
+
+}
+.article-section article.article{
+    width: 350px;
+    height: 150px;
+    background-color: rgba(255, 255, 255, 0.05);
+    margin: 40px;
+    position: relative;
+    color: rgba(255, 255, 255, .8);
+    border-radius: 10px;
+}
+.article-content{
+    height: 100%;
+    width: 90%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    transition: all ease-in-out 15s;
+    margin: auto;
+    text-align: right;
+
+}
+article.article span{
+    display: none;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .1) ;
+    color: rgba(255, 255, 255, .8);
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    transition: all ease-in-out 10s;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.article-section span a{
+    padding: 10px;
+    text-align: center;
+    width: 100px;
+    color: rgba(0, 0, 0, 1) ;
+    text-decoration: none;
+    border: 1px solid whitesmoke;
+    border-radius: 10px;
+}
+
+footer{
+    height: 60vh;
+    width: 100%;
+    color: white;
+    background-color: black;
+    text-align: right;
+    padding: 0px 20px;
+    background-attachment: fixed;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.footer-lists{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 70%;
+}
+.footer-lists ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    list-style: none;
+    height: 80%;
+}
+footer span{
+    height: 50px;
+}
+
+
+/* CONTACTS PAGE */
+.contact-section
+{
+    padding: 15px;
+    height: 60vh;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+}
+.contact-info{
+    width: 40%;
+}
+.contact-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 50%;
+    margin: 10px;
+    padding: 10px;
+    height: 90%;
+}
+.contact-form input{
+    width: 500px;
+    height: 35px;
+    margin: 10px;
+}
+.contact-form textarea{
+    width: 500px;
+    margin: 10px;
+}
+
+.social-container
+{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    justify-content: center;
+    height: 200px;
+    top: 40%;
+    right: 3%;
+    align-items: center;
+    text-align: center;
+
+}
+.social-link
+{
+    width: 50px;
+    height: 50px;
+    border: 1px solid #53717F;
+    border-radius: 50%;
+    margin: 5px;
+    font-size: 1.5rem;
+    padding: 10px;
+    text-align: center;
+}
+.contact-meta{
+    height: 20vh;
+    text-align: center;
+}
+.contact-meta a{
+    text-decoration: none;
+    color: blue;
+}
+
+
+/* BLOG PAGE */
+
+.create-post{
+height: 80vh;
+margin-top: 20vh;
+display: flex;
+padding: 20px;
+justify-content: space-between;
+align-items: center;
+width: 100%;
+}
+
+#text-content{
+    font-size: 1rem;
+    padding: 10px 10px;
+    margin: 0px 20px;
+    border-radius: 6px;
+    width: 800px;
+    height: 450px;
+    text-align: left;
+}
+.post-details{
+    width: 100%;
+    padding: 10px 20px;
+    height: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.post-details span{
+    width: 80%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.post-details i{
+    letter-spacing: 2px;
+    margin: 2px;
+}
+.post-details input{
+    margin-right: 20px;
+}
+.form-control{
+    width: 80%;
+    height: 40px;
+    padding: 10px 30px;
+    border-radius: 0;
+    margin: 10px;
+}
+.password-div{
+    position: relative;
+}
+.password-div span{
+    display: none;
+    position: absolute;
+    color: black;
+    top: 0%;
+    right: 2%;
+    padding: 10px;
+    align-items: center;
+    cursor: pointer;
+    height: 100%;
+}
+
+.save-post{
+    background-image: linear-gradient(45deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.6));
+    color: rgb(255, 255, 255);
+    font-weight: 1000;
+    letter-spacing: 1px;
+    font-size: 1.2rem;
+    width: 300px;
+    padding: 10px;
+    border-radius: 0;
+    margin: 10px;
+}
+
+.blog-section{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 5px;  
+    width: 100%;
+    padding: 10px;   
+    padding-top: 150px;
+    margin-top: 50px;
+}
+.post-container
+{
+    color: rgb(255, 255, 255);
+    padding: 10px 10px;
+     margin: 10px;
+     height: 250px;
+     text-align: left;
+    align-items: center;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-image: linear-gradient(45deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.6));
+}
+.post-container:hover{
+     cursor: pointer;
+     box-shadow: 10px 10px 10px rgba(0, 0, 0, 1);
+}
+.post-text
+{
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+}
+.post-meta-data
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    width: 100%;
+    border-radius: 5px;
+}
+.post-meta-author
+{
+    padding-top: 10px ;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* POST */
+
+.post-section{
+    height: auto;
+    padding: 20vh 10vh;
+    background-image: linear-gradient(120deg, rgba(0,0,0,0.5), rgba(255,255,255,0.5));
+}
+.post-content-container{
+    height: 100vh;
+}
+.post-content{
+    white-space: pre-line;
+}
+
+
+@media all and (max-width: 1100px){
+    .bio-section{
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100vh;
+        margin-top: 10px;
+    }
+    .profile-photo{
+        margin-top: 100px ;
+    }
+    .bio{
+        height: 350px;
+        width: 100%;
+    }
+.user-section{
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+}
+
+    .create-post{
+        margin-top: 50px;
+    }
+    .blog-section{     
+        grid-template-columns: auto auto;
+     
+}
+
+
+.contact-section{
+    width: 100%;
+    height: 90vh;
+}
+.contact-info{
+    width: 40%;
+}
+.contact-form{
+    width: 100%;
+    margin: -50px 0px;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+}
+.contact-form input{
+    width: 500px;
+    margin-top: -30px;
+}
+.social-container{
+    width: 100px;
+    height: 200px;
+    top:60%;
+    left: 30px;
+
+}
+}
+
+@media all and (max-width:800px) {
+    .burger{
+        display: block;
+    }
+.nav-links{
+    position: absolute;
+    top: 10vh;
+    right: 0px;
+    width: 100vw;
+    height: 80vh;
+    background-color: rgba(255, 255, 255, 0.7);
+    font-size: 2rem;
+    transform: translateX(50px);
+    transition: transform 1s ease-in ;
+    display: none;
+}
+.nav-links li{
+    opacity: 0 ;
+}
+.nav-links li a{
+    color: black;
+}
+.nav-active{
+    transform: translateX(0%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 1000;
+}
+    .bio-section{
+        width: 100%;
+        padding: 10px;
+        height: 90vh;
+    }
+    .profile-photo{
+        transition: all ease-in 2s;
+        width: 90%;
+        height: 400px;
+        border-radius: 10px;
+        background-size: cover;
+    }
+    .bio{
+        width: 100%;
+        border: none;
+    }
+    .bio h1{
+        font-size: 2.5rem;
+        letter-spacing: 1px;
+    }
+    .bio h2{
+        font-size: 1rem;
+    }
+    .bio p{
+        font-size: 1.2rem;
+    }
+.user-section{
+    display: flex;
+    flex-direction: column;
+}
+.user{
+    width: 80%;
+}
+
+    .blog-section{
+    display: flex;
+    flex-direction: column;
+    font-size: 1.4rem;
+    
+    }
+    .create-post{
+        height: 90vh;
+        margin-top: 10vh;
+    }
+    .post-details form{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    
+}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>{{title}}</title>
+{% endblock %}
+
+{% block body %}
+<section class="users">
+    <h1>Users</h1>
+    {% for user in users %}
+    <div>
+        <span><strong>Full Name :</strong> <i>{{user[1]}} {{user[2]}}</i></span> <br>
+        <span><strong>Username :<a href="/profile/guest//{{user[4]}}"></strong> <i>{{user[4]}}</a> </i></span> <br>
+        <span><strong>Email :</strong> <i>{{user[3]}}</i></span> <br>
+</div>
+<br>
+    {% endfor %}
+</section>
+<br>
+<section class="posts">
+    <h1>Posts</h1>
+    {% for post in posts %}
+    <div>
+        <span><strong>Title:</strong> <a href="/post/{{post[0]}}"><i>{{post[2]}}</i></a></span> <br>
+        <span><strong>Author :<a href="/profile/guest//{{post[1]}}"></strong> <i>{{post[1]}}</a> </i></span> <br>
+        <span><strong>Date :</strong> <i>{{post[4]}}</i></span> <br>
+    </div>
+    <br>
+    {% endfor %}
+</section>
+
+<section class="tables">
+    <h1>Tables</h1>
+    {% for table in tables %}
+    <div>
+     {{table}}
+    </div>
+    {% endfor %}
+</section>
+
+{% endblock %}

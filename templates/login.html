@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href={{url_for('static', filename='stylesheet.css' )}}>
+<title>{{title}}</title>
+{% endblock %}
+
+{% block body %}
+<section class="login-section">
+    <section class="login-form-section">
+        <h1 class="title">Log In</h1>
+        <div class="login-links">
+            <button>Facebook</button>
+            <button>Google</button>
+            <button>Apple</button>
+        </div>
+        <form action="/login" method="POST" class="login-form">
+            <input type="text" name="username" id="username" placeholder="Username" class="form-control" required>
+            <div class="password-div">
+                <input type="password" name="password" id="password" placeholder="Password" class="form-control"
+                    required>
+                <span><i>Show</i></span>
+            </div>
+            <strong>{{response}}</strong> <br>
+            <button>Log In</button>
+        </form>
+        <h3>Forgot Password?</h3>
+        <i>Not registered yet? <a href="/signup">Sign Up</a></i>
+    </section>
+
+</section>
+
+
+<div class="time-section">
+
+    <div class="time-text">
+        <div class="day-container">
+            <h1 class="day">Day</h1>
+            <h3 class="day-text">Day</h3>
+        </div>
+        <div class="date-container">
+            <h1 class="date">Date</h1>
+            <h3 class="date-text">Date</h3>
+        </div>
+        <div class="hour-container">
+            <h1 class="hour">Hour</h1>
+            <h3 class="hour-text">Hour</h3>
+
+        </div>
+        <div class="minute-container">
+            <h1 class="minute">Minute</h1>
+            <h3 class="minute-text">Minute</h3>
+        </div>
+        <div class="second-container">
+            <h1 class="second">Second</h1>
+            <h3 class="second-text">Seconds</h3>
+        </div>
+
+    </div>
+</div>
+<section class="details">
+
+</section>
+{% endblock %}
+
+{% block script %}
+<script src="../static/index.js"></script>
+{% endblock %}
